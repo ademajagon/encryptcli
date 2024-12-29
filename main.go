@@ -8,18 +8,15 @@ import (
 )
 
 func main() {
-	// Define CLI flags
 	mode := flag.String("mode", "", "Mode: 'encrypt' or 'decrypt'")
 	text := flag.String("text", "", "Text to encrypt/decrypt")
 	key := flag.String("key", "", "32-character encryption key")
 	flag.Parse()
 
-	// Debug: Print parsed values
 	fmt.Println("Mode:", *mode)
 	fmt.Println("Text:", *text)
 	fmt.Println("Key:", *key)
 
-	// Validate input
 	if len(*key) != 32 {
 		fmt.Println("Error: Key must be 32 characters long.")
 		os.Exit(1)
@@ -29,7 +26,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Perform encryption or decryption
 	switch *mode {
 	case "encrypt":
 		encryptedText, err := encryptor.Encrypt(*text, *key)

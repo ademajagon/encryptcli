@@ -12,7 +12,6 @@ import (
 )
 
 func Encrypt(plaintext, key string) (string, error) {
-	// Debug: Start encryption
 	fmt.Println("Encrypt function called with plaintext:", plaintext)
 
 	block, err := aes.NewCipher([]byte(key))
@@ -41,7 +40,6 @@ func Encrypt(plaintext, key string) (string, error) {
 }
 
 func Decrypt(ciphertext, key string) (string, error) {
-	// Debug: Start decryption
 	fmt.Println("Decrypt function called with ciphertext:", ciphertext)
 
 	encryptedBytes, err := base64.StdEncoding.DecodeString(ciphertext)
